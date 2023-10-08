@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'https://localhost:8989/api',
+  baseURL: `${import.meta.env.VITE_BACKSERVER}/api`,
   timeout: 1000,
 });
 
