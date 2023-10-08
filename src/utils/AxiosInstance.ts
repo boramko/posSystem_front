@@ -7,16 +7,17 @@ const axiosInstance: AxiosInstance = axios.create({
 
 // 요청 인터셉터
 axiosInstance.interceptors.request.use(
-  (config: any) => {
-    config.headers = config.headers || {};
+  (config: AxiosRequestConfig) => {
+    const conf: any = config;
+    conf.headers = conf.headers || {};
     
-    if (!config.headers['Authorization']) {
+    if (!conf.headers['Authorization']) {
       const token = localStorage.getItem('token');
       if (token) {
-        config.headers.Authorization = 'Bearer ' + token;
+        conf.headers.Authorization = 'Bearer ' + token;
       }
     }
-    return config as AxiosRequestConfig;
+    return conf;
   },
   (error) => {
     return Promise.reject(error);
