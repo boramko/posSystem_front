@@ -6,6 +6,10 @@ import { useRecoilValue } from 'recoil';
 import Board from 'components/Board/index';  // 경로를 실제 경로로 수정해주세요.
 
 const OrderList: React.FC = () => {
+  interface OrderIdType {
+    orderId: string;
+    status: string;
+  }
 
   const user = useRecoilValue(userState);
   const [payments, setPayments] = useState<PaymentType[]>([]);
@@ -37,7 +41,7 @@ const OrderList: React.FC = () => {
     });
   }
 
-  const cancelPayment = (access_token: string, order_id: string) => {
+  const cancelPayment = (access_token: string, order_id: OrderIdType) => {
     console.log(order_id)
     if(order_id.status == '취소'){
       alert('이미 취소되었습니다.')
