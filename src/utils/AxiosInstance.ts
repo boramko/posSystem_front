@@ -3,7 +3,9 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: `${import.meta.env.VITE_BACKSERVER}/api`,
   timeout: 1000,
+  withCredentials: true
 });
+
 
 // 요청 인터셉터
 axiosInstance.interceptors.request.use(
