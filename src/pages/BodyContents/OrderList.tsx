@@ -30,7 +30,7 @@ const OrderList: React.FC = () => {
           imp_key: import.meta.env.VITE_IMP_KEY,
           imp_secret: import.meta.env.VITE_IMP_SECRET,
       }, {
-          baseURL: '',  // 이 호출에만 적용되는 baseURL
+          baseURL: `${getIportPath}`,  // 이 호출에만 적용되는 baseURL
       })
     .then((response) => {
         const { access_token } = response.data.response;
