@@ -26,8 +26,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <ProtectedRouter><Main /><Menu /></ProtectedRouter>,
+    element: <ProtectedRouter><Main/></ProtectedRouter>,
     children: [
+      {
+        path: '/',
+        element: <Menu/>
+      },
       {
         path: 'orderlist',
         element: <OrderList />
