@@ -11,6 +11,8 @@ const OrderList: React.FC = () => {
     status: string;
   }
 
+  const getIportPath = import.meta.env.VITE_PAY_URL || 'https://api.iamport.kr';
+
   const user = useRecoilValue(userState);
   const [payments, setPayments] = useState<PaymentType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -55,7 +57,7 @@ const OrderList: React.FC = () => {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${access_token}`,
         },
-        baseURL: '', 
+        baseURL: `${getIportPath}`, 
     })
     .then((response) => {
         // alert(response.data.message);
